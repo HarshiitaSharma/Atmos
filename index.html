@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atmos. — a soundscape mixer for focus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎛️</text></svg>">
+</head>
+<body>
+
+<div class="console">
+
+  <header class="brand-row">
+    <div class="brand">
+      <span class="brand-lamp" aria-hidden="true"></span>
+      <h1>Atmos<span class="dot">.</span></h1>
+    </div>
+    <p class="tagline">a soundscape mixer for focus — every sound synthesized live, no audio files</p>
+  </header>
+
+  <div class="rack" id="channelRack">
+    <!-- channel strips injected by script.js -->
+  </div>
+
+  <div class="master-strip">
+    <div class="master-label">Master</div>
+    <div class="vu-meter"><div class="vu-fill" id="masterVu"></div></div>
+    <div class="vertical-slider-wrap">
+      <input type="range" id="masterFader" min="0" max="100" value="70" orient="vertical">
+    </div>
+    <span class="fader-value" id="masterValue">70</span>
+    <button class="all-off-btn" id="allOffBtn">All off</button>
+  </div>
+
+  <section class="sleep-panel">
+    <div class="sleep-head">
+      <h2>Sleep timer<span class="dot">.</span></h2>
+      <span class="sleep-readout" id="sleepReadout">off</span>
+    </div>
+    <div class="sleep-chips" id="sleepChips">
+      <button data-min="0" class="chip is-active">Off</button>
+      <button data-min="15">15m</button>
+      <button data-min="30">30m</button>
+      <button data-min="45">45m</button>
+      <button data-min="60">60m</button>
+    </div>
+  </section>
+
+  <section class="preset-panel">
+    <h2>Presets<span class="dot">.</span></h2>
+    <div class="preset-save-row">
+      <input type="text" id="presetName" placeholder="name this mix…" maxlength="24">
+      <button class="btn-copper" id="savePresetBtn">Save mix</button>
+    </div>
+    <div class="preset-list" id="presetList">
+      <p class="preset-empty" id="presetEmpty">No saved mixes yet — build a mix and save it.</p>
+    </div>
+  </section>
+
+  <p class="footnote">Rain, ocean, wind, fire, café murmur and white noise are all generated in real time by the Web Audio API. Nothing is streamed or downloaded.</p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
